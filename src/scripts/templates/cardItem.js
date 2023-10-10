@@ -13,7 +13,7 @@ const cardItem = (card) => {
 
     return `
         <article class="card__wrapper card${card.id}" data-id="${card.id}">
-            <img src="${imageSrc}" alt="${card.name}" />
+            <img src="${imageSrc}" width="380" height="253" alt="${card.name}" />
             <span class="timer">${card.time}min</span>
             <div class="card__content">
                 <h2>${card.name}</h2>

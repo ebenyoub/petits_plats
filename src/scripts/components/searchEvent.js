@@ -16,9 +16,9 @@ const isValueInDescription = (description, value) => {
 }
 
 const isValueInIngredients = (ingredients, value) => {
-    for (let ingredient in ingredients) {
-        if (ingredient.toLocaleLowerCase().includes(value.toLowerCase())) {
-            console.log(ingredients[ingredient])
+    for (let i = 0; i < ingredients.length; i++) {
+        console.log(ingredients[i].ingredient)
+        if (ingredients[i].ingredient.toLowerCase().includes(value.toLowerCase())) {
             return true;
         }
     }
@@ -27,6 +27,7 @@ const isValueInIngredients = (ingredients, value) => {
 
 const isEnableCard = (card, value) => {
     let valid = false;
+    console.log("name", card.name)
     isValueInTitle(card.name, value) && (valid = true);
     isValueInDescription(card.description, value) && (valid = true);
     isValueInIngredients(card.ingredients, value) && (valid = true);
@@ -43,14 +44,17 @@ const updateCardSection = () => {
 
 const searchBoxSort = async e => {
     let newIds = [];
-    const allData = await data.allData;
     e.preventDefault();
     if (e.target.value.length >= 3) {
-        allData.forEach(card => {
-            isEnableCard(card, e.target.value) && newIds.push(card.id);
+        data.allData.forEach(card => {
+            if (isEnableCard(card, e.target.value)) {
+                newIds.push(card.id);
+                console.log(card.name)
+            }
         })
     }
     data.selectedIds = newIds;
+    console.log(data.selectedIds)
     updateCardSection();
 }
 

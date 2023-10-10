@@ -1,0 +1,37 @@
+.header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    background-image: url("/src/assets/images/background/bg_home.webp");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: right;
+    height: clamp(400px, 50vw, 667px);
+    
+    h1 {
+        display: none;
+    }
+    
+    .logo {
+        position: absolute;
+        top: 50px;
+        left: 50px;
+        img {
+            height: clamp(15px, 5vw, 25px);
+        }
+    }
+
+    &__content {
+        width: 80%;
+
+        p {
+            color: #FFD15B;
+            text-transform: uppercase;
+            font-family: "Anton";
+            font-size: clamp(18px, 4vw, 30px);
+            text-align: center;
+            line-height: 66px;
+        }
+    }
+}

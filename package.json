@@ -1,0 +1,23 @@
+{
+  "name": "petits_plats",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "webpack --mode=development",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d dist",
+    "dev": "webpack",
+    "scss": "sass --watch src/css/scss/main.scss:dist/style.css"
+  },
+  "author": "ebenyoub",
+  "license": "ISC",
+  "devDependencies": {
+    "eslint": "^8.48.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "gh-pages": "^6.0.0",
+    "sass": "^1.67.0",
+    "webpack": "^5.88.2",
+    "webpack-cli": "^5.1.4"
+  }
+}

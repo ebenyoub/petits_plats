@@ -1,0 +1,116 @@
+.card {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-rows: 1fr;
+    justify-items: center;
+    margin: auto;
+    gap: 5rem 3rem;
+    
+    &__wrapper {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+        max-width: 380px;
+        width: 100%;
+        border-radius: 21px;
+        background-color: #fff;
+
+        & img {
+            width: 100%;
+            aspect-ratio: 380/253;
+            object-fit: cover;
+            border-radius: 21px 21px 0 0;
+        }
+
+        & .timer {
+            position: absolute;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 60px;
+            height: 25px;
+            top: 20px;
+            right: 20px;
+            background-color: #FFD15B;
+            border-radius: 50px;
+
+        }
+    }
+
+    &__content {
+        padding: 2rem;
+
+        & h2 {
+            font-family: 'Anton';
+            font-size: 1.5em;
+        }
+
+        & h3 {
+            color: #7a7a7a;
+            text-transform: uppercase;
+            line-height: 3em;
+            margin: 0;
+        }
+
+        & .description {
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+            font-size: clamp(1.2em, 1vw, 1.2em);
+
+            &.grow {
+                & p {
+                    overflow: auto;
+                    height: 100%;
+                    aspect-ratio: auto;
+                    overflow: initial;
+                }
+            }
+
+            & p {
+                aspect-ratio: 330/76;
+                line-height: 1.4em;
+                height: 5.6em;
+                overflow: hidden;
+                text-overflow: ellipsis;
+            }
+
+            & span {
+                cursor: pointer;
+                text-decoration: underline;
+            }
+        }
+
+
+        & .ingredients {
+            aspect-ratio: 330/107;
+            transition: display 1s ease;
+            margin-top: 1rem;
+            font-size: clamp(1.2em, 1vw, 1.2em);
+
+            &__list {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+
+
+                & .ingredient {
+                    margin: 1rem 0;
+                }
+
+                & .ingredient p {
+                    line-height: 1.5em;
+                    margin: 0;
+                }
+
+                & .ingredient span {
+                    color: #7a7a7a;
+                }
+
+                &.hide {
+                    display: none;
+                }
+            }
+        }
+    }
+}

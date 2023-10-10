@@ -1,0 +1,105 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins&family=Shrikhand&display=swap");
+.sort-section {
+  display: flex;
+  justify-content: space-between;
+}
+
+.inputs {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  width: calc(100% - 200px);
+  max-width: 70rem;
+}
+
+.wrapper {
+  width: calc(100% / 3 - 10px);
+}
+.wrapper.active .content {
+  display: block;
+}
+.wrapper.active .select-btn {
+  border-radius: 7px 7px 0 0;
+}
+.wrapper.active .select-btn i {
+  transform: rotate(-180deg);
+}
+
+.select-btn,
+.options li {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  cursor: pointer;
+}
+
+.select-btn {
+  height: 40px;
+  width: 100%;
+  background-color: #fff;
+  font-size: clamp(1.2rem, 2vw, 1.6rem);
+  border-radius: 7px;
+  justify-content: space-between;
+  padding: 0 20px;
+  box-sizing: border-box;
+}
+.select-btn i {
+  font-size: clamp(1.2rem, 2vw, 1.6rem);
+  transition: transform 0.3s linear;
+}
+
+.content {
+  display: none;
+  position: absolute;
+  z-index: 1;
+  width: calc(100% / 3 - 10px);
+  background-color: #fff;
+  border-radius: 0 0 7px 7px;
+  box-sizing: border-box;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+
+.search {
+  position: relative;
+  margin: 0 1rem;
+}
+.search input {
+  width: 100%;
+  height: 40px;
+  border-radius: 5px;
+  outline: none;
+  border: 1px solid #b3b3b3;
+  font-size: 17px;
+  padding: 0 43px 0 15px;
+}
+.search i {
+  position: absolute;
+  color: #999;
+  line-height: 40px;
+  font-size: 20px;
+  right: 15px;
+}
+
+.options {
+  margin-top: 10px;
+  max-height: 200px;
+  overflow-y: auto;
+  padding: 0;
+  box-sizing: content-box;
+}
+.options li {
+  width: 100%;
+  height: 40px;
+  padding: 0 2rem;
+  font-size: 1.8rem;
+  box-sizing: border-box;
+}
+.options li:hover {
+  background-color: #FFD15B;
+}
+
+span.count {
+  line-height: 40px;
+  font-family: "Anton";
+  font-size: 1.8rem;
+}

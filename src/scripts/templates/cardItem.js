@@ -1,5 +1,8 @@
 import cardEvent from "../components/cardEvents.js";
-import data from "../data/handleData.js";
+import card from "../data/handleData.js";
+
+const cardSection = document.querySelector(".card");
+const watcher = document.querySelector(".watcher");
 
 const cardItem = (card) => {
     const imageName = card.image.replace("jpg", "webp");
@@ -33,14 +36,31 @@ const cardItem = (card) => {
     `
 }
 
-const setCardItems = () => {
-    const cardSection = document.querySelector(".card");
+const insertCard = (card) => {
+    cardSection.insertAdjacentHTML("beforeend", cardItem(card));
+    cardEvent(document.querySelector(`.card${card.id}`));
+}
 
-    for (let id of data.selectedIds) {
-        const card = data.allData.find(item => item.id === id);
-        cardSection.insertAdjacentHTML("beforeend", cardItem(card));
-        cardEvent(document.querySelector(`.card${id}`));
+const handleIntersect = entries => {
+    if (entries[0].isIntersecting) {
+        const cardToLoad = 10;
+        for (let i = 0; i < cardToLoad; i++) {
+            const nextCard = card.getNextCard();
+            nextCard && insertCard(nextCard);
+        }
     }
 }
 
-export default setCardItems;
+const lazyLoad = () => {
+    if (card.observer) {
+        card.observer.disconnect();
+    }
+    card.observer = new IntersectionObserver(handleIntersect)
+    card.observer.observe(watcher);
+} 
+
+const setCardItems = () => {
+    lazyLoad();
+}
+
+export default setCardItems;    

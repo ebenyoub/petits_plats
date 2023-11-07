@@ -1,24 +1,28 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Les petits plats, des recettes pour tous les goûts.">
     <link rel="stylesheet" href="./dist/style.css">
     <script src="https://kit.fontawesome.com/cf618d8113.js" crossorigin="anonymous"></script>
     <title>Les Petits Plats</title>
 </head>
+
 <body>
     <header class="header">
         <h1 class="hidden">Les Petits Plats</h1>
         <div class="logo">
-            <img src="src/assets/images/icons/logo_name.png" alt="Les petits Plats">
-            <img src="src/assets/images/icons/logo_circle.png" alt="">
+            <img src="src/assets/images/icons/logo_name.png" width="auto" height="auto" alt="Les petits Plats">
+            <img src="src/assets/images/icons/logo_circle.svg" width="auto" height="auto" alt="">
         </div>
         <div class="header__content">
-            <p class="intro">Cherchez parmi plus de 1500 recettes<br/>du quotidien, simples et délicieuses</p>
+            <p class="intro">Cherchez parmi plus de 1500 recettes<br />du quotidien, simples et délicieuses</p>
             <form class="search-box">
-                <input type="search" name="search" id="search" placeholder="Rechercher une recette, un ingrédient...">
-                <button type="submit">
+                <input type="search" name="search-main" id="search-main"
+                    placeholder="Rechercher une recette, un ingrédient..." autofocus>
+                <button type="submit" disabled>
                     <img src="src/assets/images/icons/search.svg" alt="search button">
                 </button>
             </form>
@@ -29,6 +33,8 @@
         <span class="count"></span>
     </section>
     <section class="card"></section>
+    <div class="watcher"></div>
     <script type="module" src="src/scripts/pages/index.js"></script>
 </body>
+
 </html>

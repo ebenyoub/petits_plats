@@ -16,14 +16,16 @@ export const inputClick = () => {
 
         for (let input of inputs) {
             if (!input.contains(e.target)) {
-                input.classList.remove("active");
-                input.querySelector(".content").style.display = "none";
+                // Vérifier si l'élément cliqué possède la classe .close-tag
+                const isCloseTag = e.target.classList.contains("close-tag");
+                const isTagList = e.target.classList.contains("tag-list");
+
+                // Ne fermer que si l'élément cliqué n'est pas .close-tag
+                if (!isCloseTag || !isTagList) {
+                    input.classList.remove("active");
+                    input.querySelector(".content").style.display = "none";
+                }
             }
         }
     });
-}
-
-
-const selectTag = (tag) => {
-
 }

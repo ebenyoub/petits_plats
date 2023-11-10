@@ -4,17 +4,7 @@ import { capitalizeFirstLetter, isValueInList } from "../utils/functions.js";
 
 function removeTag(li, tagItem, nameList) {
     const tagKey = `cached${capitalizeFirstLetter(nameList)}`;
-    const cachedList = tag[tagKey];
-    console.log("cacheList", cachedList);
-    let newList = [];
-    for (let i = 0; i < cachedList.length; i++) {
-        if (cachedList[i] !== tagItem) {
-            newList.push(cachedList[i]);
-        }
-    }
-    console.log(newList)
-    tag[tagKey] = newList;
-    
+    tag[tagKey] = tag[tagKey].filter(item => item !== tagItem);
     li.remove();
 }
 
@@ -22,15 +12,16 @@ function buildTag(nameList, tagItem, node) {
     const src = "/src/assets/images/icons/close_tag.svg";
     const li = document.createElement("li");
     const liContent = document.createElement("span");
-    liContent.textContent = tagItem;
     const buttonClose = new Image(17, 17);
+
+    liContent.textContent = tagItem;
     buttonClose.src = src;
     buttonClose.setAttribute("class", "close-tag");
     buttonClose.setAttribute("alt", "remove tag");
     buttonClose.addEventListener("click", e => {
         e.stopPropagation();
         removeTag(li, tagItem, nameList);
-    })
+    });
     li.setAttribute("class", "tag-element");
     li.setAttribute("title", tagItem);
     li.appendChild(liContent);
@@ -44,7 +35,6 @@ function saveTag(nameList, selectedTag) {
     const tagSection = document.querySelector(`.options-${nameList}`).previousElementSibling;
     if (!newList.includes(selectedTag)) {
         newList.push(selectedTag);
-        console.log(nameList, newList)
         tag[tagKey] = newList; // update des indexes
         buildTag(nameList, selectedTag, tagSection);
     }
@@ -52,61 +42,55 @@ function saveTag(nameList, selectedTag) {
 
 export function createList(nameList, ul, list) {
     const cacheTagKey = `cached${capitalizeFirstLetter(nameList)}`;
-    // Pour chaque tag de la liste
-    for (let i = 0; i < list.length; i++) {
-        // l'ajouter dans le dom
-        if (!isValueInList(tag[cacheTagKey], list[i])) {
+    
+    list.forEach(tagItem => {
+        if (!isValueInList(tag[cacheTagKey], tagItem)) {
             const li = document.createElement("li");
-            li.setAttribute("class", "tag-list")
-            li.textContent = list[i];
+            li.setAttribute("class", "tag-list");
+            li.textContent = tagItem;
             li.addEventListener("click", e => {
                 e.stopPropagation();
-                saveTag(nameList, list[i]);
-                li.remove()
-            })
+                saveTag(nameList, tagItem);
+                li.remove();
+            });
             ul.appendChild(li);
         }
-    }
+    });
 }
+
 
 function updateAllTags() {
     const options = document.querySelectorAll(".options");
     options.forEach(option => {
-        const nameList = option.classList[1].split('-')[1];
+        const nameList = option.classList[1].split("-")[1];
         option.innerHTML = null;
         createList(nameList, option, tag[nameList]);
-    })
+    });
 }
 
 function updateTagList() {
-    let newIngredients = [];
-    let newUstensils = [];
-    let newAppliances = [];
+    const newIngredients = new Set();
+    const newUstensils = new Set();
+    const newAppliances = new Set();
 
-    for (let i = 0; i < card.indexes.length; i++) {
-        const currentCard = card.data[card.indexes[i]];
-        for (let j = 0; j < currentCard.ingredients.length; j++) {
-            if (!isValueInList(newIngredients, currentCard.ingredients[j].ingredient)) {
-                newIngredients.push(currentCard.ingredients[j].ingredient.toLowerCase());
-            }
-        }
-        for (let j = 0; j < currentCard.ustensils.length; j++) {
-            if (!isValueInList(newUstensils, currentCard.ustensils[j])) {
-                newUstensils.push(currentCard.ustensils[j].toLowerCase());
-            }
-        }
-        for (let j = 0; j < currentCard.appliance.length; j++) {
-            if (!isValueInList(newAppliances, currentCard.appliance)) {
-                newAppliances.push(currentCard.appliance.toLowerCase());
-            }
-        }
+    for (const index of card.indexes) {
+        const currentCard = card.data[index];
+
+        currentCard.ingredients.forEach(ingredient => newIngredients.add(ingredient.ingredient.toLowerCase()));
+        currentCard.ustensils.forEach(ustensil => newUstensils.add(ustensil.toLowerCase()));
+
+        // Ajouter l'appliance à l'ensemble
+        newAppliances.add(currentCard.appliance.toLowerCase());
     }
 
-    tag.ingredients = newIngredients;
-    tag.ustensils = newUstensils;
-    tag.appliances = newAppliances;
+    // Convertir les ensembles en tableaux
+    tag.ingredients = Array.from(newIngredients);
+    tag.ustensils = Array.from(newUstensils);
+    tag.appliances = Array.from(newAppliances);
 
     updateAllTags();
 }
+
+
 
 export default updateTagList;

@@ -10,9 +10,9 @@ const cardItem = (card) => {
     const ingredientList = card.ingredients.map(item => `
         <div class="ingredient">
             <p>${item.ingredient}</p>
-            <span>${item.quantity ? item.quantity : ''} ${item.unit ? item.unit : ''}</span>
+            <span>${item.quantity ? item.quantity : ""} ${item.unit ? item.unit : ""}</span>
         </div>
-    `).join('');
+    `).join("");
 
     return `
         <article class="card__wrapper card${card.id}" data-id="${card.id}">
@@ -33,13 +33,13 @@ const cardItem = (card) => {
                 </div>
             </div>
         </article>
-    `
-}
+    `;
+};
 
 const insertCard = (card) => {
     cardSection.insertAdjacentHTML("beforeend", cardItem(card));
     cardEvent(document.querySelector(`.card${card.id}`));
-}
+};
 
 const handleIntersect = entries => {
     if (entries[0].isIntersecting) {
@@ -49,18 +49,18 @@ const handleIntersect = entries => {
             nextCard && insertCard(nextCard);
         }
     }
-}
+};
 
 const lazyLoad = () => {
     if (card.observer) {
         card.observer.disconnect();
     }
-    card.observer = new IntersectionObserver(handleIntersect)
+    card.observer = new IntersectionObserver(handleIntersect);
     card.observer.observe(watcher);
-} 
+}; 
 
 const setCardItems = () => {
     lazyLoad();
-}
+};
 
 export default setCardItems;    

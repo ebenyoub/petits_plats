@@ -4,10 +4,12 @@ import tag from "./handleTag.js";
 export class Card {
     constructor() {
         this._data = [];
-        this._ids = [];
+        this._indexes = [];
+        this._indexesAdvanced = [];
         this._searchValue = "";
         this._currentIndex = 0;
         this._observer;
+        this._performance = false;
     }
 
     set searchValue(value) {
@@ -21,17 +23,28 @@ export class Card {
     set data(datas) {
         this._data = datas;
     }
-
+    
     get data() {
         return this._data;
     }
-
+    
     set indexes(selected) {
-        this._ids = selected;
+        const count = document.querySelector(".count");
+
+        this._indexes = selected;
+        count.textContent = `${card.indexes.length} recettes`;
     }
 
     get indexes() {
-        return this._ids;
+        return this._indexes;
+    }
+    
+    set indexesAdvanced(selected) {
+        this._indexesAdvanced = selected;
+    }
+
+    get indexesAdvanced() {
+        return this._indexesAdvanced;
     }
 
     get ids() {
@@ -54,35 +67,28 @@ export class Card {
         this._currentIndex = value;
     }
 
+    get performance() {
+        return this._performance;
+    }
+
+    set performance(state) {
+        this._performance = state;
+    }
+
     render(value = null) {
         const cardSection = document.querySelector(".card");
-        const count = document.querySelector(".count");
+
         cardSection.innerHTML = null;
         card.currentIndex = 0;
-        count.textContent = `${card.indexes.length} recettes`;
         if (card.indexes.length) {
             setCardItems();
         } else {
             cardSection.innerHTML = `
-                <p class="error-message">Aucune recette ${value ? "ne contient " + value : "trouvé"}.</p>
+                <p class="error-message">Aucune recette ${value ? `ne contient "${value}"` : "trouvé"}.</p>
             `;
         }
+
         tag.update();
-    }
-
-    filter() {
-        card.searchValue = e.target.value;
-        if (card.searchValue.length >= 3) {
-            filterBySearchBar(e);
-        } else {
-            card.indexes = card.ids;
-        }
-
-        tag.cachedIngredients && filterByIngredients();
-        tag.cachedAppliances && filterByAppliances();
-        tag.cachedUstensils && filterByUstensils();
-
-        this.render(card.searchValue && card.searchValue)
     }
 
     getNextCard() {

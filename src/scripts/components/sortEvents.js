@@ -5,7 +5,7 @@ export const inputClick = () => {
         const selectBtn = input.querySelector(".select-btn");
         const content = input.querySelector(".content");
 
-        selectBtn.addEventListener("click", (e) => {
+        selectBtn.addEventListener("click", () => {
             input.classList.toggle("active");
             content.style.display = input.classList.contains("active") ? "block" : "none";
         });
@@ -28,4 +28,4 @@ export const inputClick = () => {
             }
         }
     });
-}
+};

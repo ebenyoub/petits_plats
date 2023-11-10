@@ -1,17 +1,23 @@
-const path = require("path");
+import path from "path";
+import { fileURLToPath } from "url";
+import { dirname } from "path";
 
-module.exports = {
-  entry: path.resolve(__dirname, "src/scripts/pages/index.js"),
-  resolve: {
-    alias: {
-      "@src": path.resolve(__dirname, "src"), // Chemin absolu vers le répertoire 'src'
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
+
+export default {
+    entry: path.resolve(__dirname, "src/scripts/pages/index.js"),
+    resolve: {
+        alias: {
+            "@src": path.resolve(__dirname, "src"),
+        },
+        extensions: [".js", ".jsx", ".json"]
     },
-  },
-  output: {
-    filename: "bundle.js", // Le nom du fichier de sortie
-    path: path.resolve(__dirname, "dist"), // Le répertoire de sortie
-    publicPath: "",
-  },
-  mode: "development",
-  watch: false,
+    output: {
+        filename: "bundle.js",
+        path: path.resolve(__dirname, "dist"),
+        publicPath: "",
+    },
+    mode: "development",
+    watch: true,
 };

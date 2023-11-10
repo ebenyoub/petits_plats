@@ -4,15 +4,15 @@ const getInput = (object) => {
     let listName;
 
     switch (object) {
-        case "ingredients":
-            listName = "Ingrédients";
-            break;
-        case "appliances":
-            listName = "Appareils"
-            break;
-        default:
-            listName = "Ustensiles";
-            break;
+    case "ingredients":
+        listName = "Ingrédients";
+        break;
+    case "appliances":
+        listName = "Appareils";
+        break;
+    default:
+        listName = "Ustensiles";
+        break;
     }
 
     return `
@@ -30,8 +30,8 @@ const getInput = (object) => {
                     <ul class="options options-${object}"></ul>
                 </div>
             </div>
-        `
-}
+        `;
+};
 
 const setSortInputs = () => {
     const inputs = document.querySelector(".inputs");
@@ -40,6 +40,6 @@ const setSortInputs = () => {
 
     objects.forEach(object => inputs.insertAdjacentHTML("beforeend", getInput(object)));
     count.textContent = `${card.ids.length} recettes`;
-}
+};
 
 export default setSortInputs;

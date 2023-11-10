@@ -1,0 +1,48 @@
+.performance {
+    position: absolute;
+    top: 50px;
+    right: 50px;
+    width: 70px;
+    height: 40px;
+
+    &__slider {
+        position: absolute;
+        inset: 0;
+        border-radius: 50px;
+        background-color: lightgrey;
+        border: 1px solid white;
+        cursor: pointer;
+
+        &::before {
+            position: absolute;
+            content: "";
+            width: 30px;
+            height: 30px;
+            left: 5px;
+            bottom: 5px;
+            background-color: #1b1b1b;
+            border-radius: 50px;
+            transition: .4s;
+        }
+
+        &::after {
+            position: absolute;
+            content: "Performances";
+            font-size: 15px;
+            color: white;
+            top: -30px;
+            left: -20px;
+        }
+    }
+
+    & input {
+        display: none;
+        &:checked + .performance__slider {
+            background-color: #FFD15B;
+
+            &::before {
+                transform: translateX(30px);
+            }
+        }
+    }
+}

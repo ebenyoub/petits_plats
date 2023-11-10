@@ -1,14 +1,11 @@
-import { inputClick } from "../components/sortEvents.js";
-import sortWithTag from "../components/tagEvent.js";
-import setSortInputs from "../templates/sortItem.js";
-import setCardItems from "../templates/cardItem.js";
 import card from "../data/handleData.js";
 import tag from "../data/handleTag.js";
-import filterBySearchBar from "../filters/filterBySearchBar.js";
-import filterByIngredients from "../filters/filterByIngredients.js";
-import filterByAppliances from "../filters/filterByAppliances.js";
-import filterByUstensils from "../filters/filterByUstensils.js";
-
+import sortWithTag from "../components/tagEvent.js";
+import { inputClick } from "../components/sortEvents.js";
+import setSortInputs from "../templates/sortItem.js";
+import setCardItems from "../templates/cardItem.js";
+import performance from "../components/performance.js";
+import filter from "../utils/filter_main.js";
 
 const fetchData = async () => {
     try {
@@ -22,7 +19,7 @@ const fetchData = async () => {
         console.error("Une erreur s'est produite lors de la récupération des données : ", error);
         throw error;
     }
-}
+};
 
 const init = async () => {
     const searchBox = document.getElementById("search-main");
@@ -36,13 +33,14 @@ const init = async () => {
     inputClick();
 
     // initialisation des tags
-    tag.update();  
+    tag.update();
 
     // génération des cartes
     setCardItems();
     sortWithTag();
+    performance();
 
-    searchBox.addEventListener("input", tag.filter);
-}
+    searchBox.addEventListener("input", filter);
+};
 
 document.addEventListener("DOMContentLoaded", init);

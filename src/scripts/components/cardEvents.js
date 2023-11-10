@@ -13,7 +13,7 @@ const cardEvent = (card) => {
             description.classList.remove("grow");
             more.textContent = "Afficher tout";
         }
-    })
-}
+    });
+};
 
 export default cardEvent;

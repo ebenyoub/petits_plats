@@ -1,8 +1,5 @@
-import filterByAppliances from "../filters/filterByAppliances.js";
-import filterByIngredients from "../filters/filterByIngredients.js";
-import filterByUstensils from "../filters/filterByUstensils.js";
 import updateTagList from "../templates/tagItem.js";
-import card from "./handleData.js";
+import filter from "../utils/filter_main.js";
 
 class Tag {
     constructor() {
@@ -12,6 +9,9 @@ class Tag {
         this._cachedIngredients = [];
         this._cachedAppliances = [];
         this._cachedUstensils = [];
+        this._valueIngredients = [];
+        this._valueAppliances = [];
+        this._valueUstensils = [];
     }
 
     /* *********************************** */
@@ -48,18 +48,16 @@ class Tag {
 
     set cachedIngredients(newList) {
         this._cachedIngredients = newList;
-        filterByIngredients();
-        card.render();
+        filter();
     }
 
     get cachedAppliances() {
         return this._cachedAppliances;
     }
-    
+
     set cachedAppliances(newList) {
         this._cachedAppliances = newList;
-        filterByAppliances();
-        card.render();
+        filter();
     }
 
     get cachedUstensils() {
@@ -68,14 +66,13 @@ class Tag {
 
     set cachedUstensils(newList) {
         this._cachedUstensils = newList;
-        filterByUstensils();
-        card.render();
+        filter();
     }
 
     /* *********************************** */
 
     update() {
-        updateTagList()
+        updateTagList();
     }
 }
 

@@ -125,12 +125,16 @@ li {
         max-width: 100%;
         padding-right: 2rem;
         background-color: #ffd15b;
+        border-radius: 7px;
 
         & span {
             white-space: nowrap;
             overflow: hidden;
             text-overflow: ellipsis;
             cursor: default;
+            &:hover {
+                font-weight: 700;
+            }
         }
 
         & .close-tag {

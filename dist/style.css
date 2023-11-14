@@ -436,6 +436,12 @@ template {
 .search-box button:active {
   transform: scale(0.97);
 }
+.search-box button:hover {
+  background-color: #FFD15B;
+}
+.search-box button:hover img {
+  filter: brightness(0) saturate(100%);
+}
 .search-box button img {
   width: 100%;
   color: white;
@@ -556,12 +562,16 @@ li.tag-element {
   max-width: 100%;
   padding-right: 2rem;
   background-color: #ffd15b;
+  border-radius: 7px;
 }
 li.tag-element span {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
   cursor: default;
+}
+li.tag-element span:hover {
+  font-weight: 700;
 }
 li.tag-element .close-tag {
   display: flex;
@@ -585,6 +595,7 @@ span.count {
   grid-template-rows: 1fr;
   justify-items: center;
   margin: auto;
+  padding-top: 0;
   gap: 5rem 3rem;
 }
 .card__wrapper {
@@ -623,7 +634,7 @@ span.count {
   font-size: 1.5em;
 }
 .card__content h3 {
-  color: #3c3c3c;
+  color: #727272;
   text-transform: uppercase;
   line-height: 3em;
   margin: 0;
@@ -669,7 +680,7 @@ span.count {
   margin: 0;
 }
 .card__content .ingredients__list .ingredient span {
-  color: #3c3c3c;
+  color: #727272;
 }
 .card__content .ingredients__list.hide {
   display: none;

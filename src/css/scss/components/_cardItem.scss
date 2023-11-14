@@ -4,6 +4,7 @@
   grid-template-rows: 1fr;
   justify-items: center;
   margin: auto;
+  padding-top: 0;
   gap: 5rem 3rem;
 
   &__wrapper {
@@ -46,7 +47,7 @@
     }
 
     & h3 {
-      color: #3c3c3c;
+      color: #727272;
       text-transform: uppercase;
       line-height: 3em;
       margin: 0;
@@ -101,7 +102,7 @@
         }
 
         & .ingredient span {
-          color: #3c3c3c;
+          color: #727272;
         }
 
         &.hide {

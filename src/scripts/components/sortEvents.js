@@ -39,27 +39,20 @@ function inputClick() {
 
         case "ArrowDown":
             e.preventDefault();
-            if (e.target.tagName.toLowerCase() === "input" &&
-                    e.target.name.toLowerCase().startsWith("search-tag-")) {
+            if (e.target.classList.contains("select-btn")) {
                 // si on est sur l'input de recherche
-                const nameList = e.target.closest(".content").classList[1].split("-")[1];
+                const nameList = e.target.nextElementSibling.classList[1].split("-")[1];
                 const tagKey = `cached${capitalizeFirstLetter(nameList)}`;
 
                 if (tag[tagKey].length) {
                     // aller au premier tag sauvegardé s'il existe
-                    e.target.closest(".content").querySelector(".select-tag li").focus();
-                } else {
-                    // aller au premier li de la liste
-                    e.target.closest(".content").querySelector(".options li").focus();
+                    e.target.closest(".wrapper").querySelector(".select-tag li").focus();
                 }
             } else if (e.target.classList.contains("tag-element")) {
                 // si on est sur les tags sauvegardés
                 if (e.target.nextElementSibling) {
                     // aller au tag suivant
                     e.target.nextElementSibling.focus();
-                } else {
-                    // aller au premier li de la liste
-                    e.target.closest(".content").querySelector(".options li").focus();
                 }
             } else if (e.target.classList.contains("tag-list")) {
                 // si on est sur la liste
@@ -67,6 +60,8 @@ function inputClick() {
                     // aller l'item suivant s'il existe
                     e.target.nextElementSibling.focus();
                 }
+            } else if (e.target.tagName.toLowerCase() === "input") {
+                e.target.closest(".search").nextElementSibling.querySelector(".tag-list").focus();
             }
             break;
 
@@ -115,9 +110,9 @@ function inputClick() {
             if (e.target.classList.contains("tag-element")) {
                 // supprimer le tag
                 e.preventDefault();
-                const nameList = e.target.closest(".content").classList[1].split("-")[1];
+                const nameList = e.target.closest(".select-tag").classList[1].split("-")[2];
                 const tagItem = e.target.textContent;
-                e.target.closest(".content").querySelector(".search input").focus();
+                e.target.closest(".wrapper").querySelector(".select-btn").focus();
                 removeTag(e.target, tagItem, nameList);
             }
             break;

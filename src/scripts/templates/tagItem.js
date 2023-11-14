@@ -9,7 +9,7 @@ export function removeTag(li, tagItem, nameList) {
 }
 
 function buildTag(nameList, tagItem, node) {
-    const src = "/src/assets/images/icons/close_tag.svg";
+    const src = "/src/assets/images/icons/tag_close.svg";
     const li = document.createElement("li");
     const liContent = document.createElement("span");
     const buttonClose = new Image(17, 17);
@@ -28,12 +28,14 @@ function buildTag(nameList, tagItem, node) {
     li.appendChild(liContent);
     li.appendChild(buttonClose);
     node.appendChild(li);
+    li.closest(".wrapper").querySelector(".select-btn").classList.remove("active");
+
 }
 
 export function saveTag(nameList, selectedTag) {
     const tagKey = `cached${capitalizeFirstLetter(nameList)}`;
     let newList = tag[tagKey];
-    const tagSection = document.querySelector(`.options-${nameList}`).previousElementSibling;
+    const tagSection = document.querySelector(`.select-tag-${nameList}`);
     if (!newList.includes(selectedTag)) {
         newList.push(selectedTag);
         tag[tagKey] = newList; // update des indexes

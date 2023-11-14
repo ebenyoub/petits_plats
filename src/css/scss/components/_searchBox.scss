@@ -28,6 +28,13 @@
             transform: scale(.97);
         }
 
+        &:hover {
+            background-color: #FFD15B;
+            & img {
+                filter: brightness(0) saturate(100%);
+            }
+        }
+
         img {
             width: 100%;
             color:white

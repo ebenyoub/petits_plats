@@ -7,7 +7,7 @@ const sortWithTag = () => {
     options.forEach(option => {
         const input = option.querySelector("input[id^=\"search-\"");
         const ul = option.querySelector(".options");
-        const nameList = input.getAttribute("name").split("-")[1];
+        const nameList = input.getAttribute("name").split("-")[2];
         input.addEventListener("input", e => {
             const newList = tag[nameList].filter(item => isValueInItem(item, e.target.value));
             ul.innerHTML = null;

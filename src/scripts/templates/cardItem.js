@@ -15,7 +15,7 @@ const cardItem = (card) => {
     `).join("");
 
     return `
-        <article class="card__wrapper card${card.id}" data-id="${card.id}">
+        <article class="card__wrapper card${card.id}" data-id="${card.id}" tabindex="0">
             <img src="${imageSrc}" width="380" height="253" alt="${card.name}" />
             <span class="timer">${card.time}min</span>
             <div class="card__content">
@@ -41,13 +41,17 @@ const insertCard = (card) => {
     cardEvent(document.querySelector(`.card${card.id}`));
 };
 
+export const loadCards = () => {
+    const cardToLoad = 10;
+    for (let i = 0; i < cardToLoad; i++) {
+        const nextCard = card.getNextCard();
+        nextCard && insertCard(nextCard);
+    }
+};
+
 const handleIntersect = entries => {
     if (entries[0].isIntersecting) {
-        const cardToLoad = 10;
-        for (let i = 0; i < cardToLoad; i++) {
-            const nextCard = card.getNextCard();
-            nextCard && insertCard(nextCard);
-        }
+        loadCards();
     }
 };
 
@@ -61,6 +65,17 @@ const lazyLoad = () => {
 
 const setCardItems = () => {
     lazyLoad();
+
+    // tab sur derniere card = chargement des 10 prochaines
+    document.addEventListener("keydown", e => {
+        if (e.key === "Tab") {
+            const lastCard = document.querySelector(".card article:last-child");
+    
+            if (document.activeElement === lastCard) {
+                loadCards();
+            }
+        }
+    });
 };
 
 export default setCardItems;    

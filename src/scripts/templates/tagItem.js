@@ -2,7 +2,7 @@ import card from "../data/handleData.js";
 import tag from "../data/handleTag.js";
 import { capitalizeFirstLetter, isValueInList } from "../utils/functions.js";
 
-function removeTag(li, tagItem, nameList) {
+export function removeTag(li, tagItem, nameList) {
     const tagKey = `cached${capitalizeFirstLetter(nameList)}`;
     tag[tagKey] = tag[tagKey].filter(item => item !== tagItem);
     li.remove();
@@ -23,13 +23,14 @@ function buildTag(nameList, tagItem, node) {
         removeTag(li, tagItem, nameList);
     });
     li.setAttribute("class", "tag-element");
+    li.setAttribute("tabindex", "0");
     li.setAttribute("title", tagItem);
     li.appendChild(liContent);
     li.appendChild(buttonClose);
     node.appendChild(li);
 }
 
-function saveTag(nameList, selectedTag) {
+export function saveTag(nameList, selectedTag) {
     const tagKey = `cached${capitalizeFirstLetter(nameList)}`;
     let newList = tag[tagKey];
     const tagSection = document.querySelector(`.options-${nameList}`).previousElementSibling;
@@ -47,6 +48,7 @@ export function createList(nameList, ul, list) {
         if (!isValueInList(tag[cacheTagKey], tagItem)) {
             const li = document.createElement("li");
             li.setAttribute("class", "tag-list");
+            li.setAttribute("tabindex", "0");
             li.textContent = tagItem;
             li.addEventListener("click", e => {
                 e.stopPropagation();

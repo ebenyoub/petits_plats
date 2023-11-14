@@ -1,8 +1,7 @@
 import card from "../data/handleData.js";
 import tag from "../data/handleTag.js";
 import sortWithTag from "../components/tagEvent.js";
-import { inputClick } from "../components/sortEvents.js";
-import setSortInputs from "../templates/sortItem.js";
+import inputClick from "../components/sortEvents.js";
 import setCardItems from "../templates/cardItem.js";
 import performance from "../components/performance.js";
 import filter from "../utils/filter_main.js";
@@ -29,16 +28,17 @@ const init = async () => {
     card.indexes = card.ids;
 
     // création des inputs de recherche avancé
-    setSortInputs();
-    inputClick();
-
+    // setSortInputs();
+    
     // initialisation des tags
     tag.update();
-
+    
     // génération des cartes
+    document.querySelector(".card").innerHTML = null;
     setCardItems();
     sortWithTag();
     performance();
+    inputClick();
 
     searchBox.addEventListener("input", filter);
 };

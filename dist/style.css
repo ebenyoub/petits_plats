@@ -454,27 +454,6 @@ template {
   max-width: 70rem;
 }
 
-.wrapper {
-  width: calc(33.3333333333% - 10px);
-}
-.wrapper.active .content {
-  display: block;
-}
-.wrapper.active .select-btn {
-  border-radius: 7px 7px 0 0;
-}
-.wrapper.active .select-btn i {
-  transform: rotate(-180deg);
-}
-
-.select-btn,
-.options li {
-  display: flex;
-  align-items: center;
-  width: 100%;
-  cursor: pointer;
-}
-
 .select-btn {
   height: 40px;
   width: 100%;
@@ -489,6 +468,15 @@ template {
   font-size: clamp(1.2rem, 2vw, 1.6rem);
   transition: transform 0.3s linear;
 }
+.select-btn.active {
+  border-radius: 7px 7px 0 0;
+}
+.select-btn.active i {
+  transform: rotate(-180deg);
+}
+.select-btn.active + .content {
+  display: block;
+}
 
 .content {
   display: none;
@@ -499,6 +487,18 @@ template {
   border-radius: 0 0 7px 7px;
   box-sizing: border-box;
   box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+
+.wrapper {
+  width: calc(33.3333333333% - 10px);
+}
+
+.select-btn,
+.options li {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  cursor: pointer;
 }
 
 .search {
@@ -543,9 +543,10 @@ li {
   overflow: hidden;
   text-overflow: ellipsis;
 }
-li.tag-list:hover {
+li.tag-list:hover, li.tag-list:focus {
   background-color: #ffd15b;
   white-space: initial;
+  outline: none;
 }
 li.tag-element {
   display: flex;
@@ -567,6 +568,9 @@ li.tag-element .close-tag {
   align-items: center;
   margin-left: 0.3rem;
   cursor: pointer;
+}
+li.tag-element:focus {
+  border: 3px solid lightblue;
 }
 
 span.count {
@@ -608,7 +612,7 @@ span.count {
   height: 25px;
   top: 20px;
   right: 20px;
-  background-color: #FFD15B;
+  background-color: #ffd15b;
   border-radius: 50px;
 }
 .card__content {
@@ -619,7 +623,7 @@ span.count {
   font-size: 1.5em;
 }
 .card__content h3 {
-  color: #7a7a7a;
+  color: #3c3c3c;
   text-transform: uppercase;
   line-height: 3em;
   margin: 0;
@@ -665,10 +669,46 @@ span.count {
   margin: 0;
 }
 .card__content .ingredients__list .ingredient span {
-  color: #7a7a7a;
+  color: #3c3c3c;
 }
 .card__content .ingredients__list.hide {
   display: none;
+}
+
+.card__wrapper.skeleton {
+  padding: 2rem;
+}
+.card__wrapper.skeleton .img {
+  width: 100%;
+  height: 253px;
+  background-color: whitesmoke;
+  border-radius: 10px;
+}
+.card__wrapper.skeleton h2,
+.card__wrapper.skeleton h3 {
+  display: block;
+  width: 80%;
+  height: 2em;
+  background-color: whitesmoke;
+  border-radius: 5px;
+}
+.card__wrapper.skeleton .description {
+  width: 100%;
+  height: 8em;
+  background-color: whitesmoke;
+  border-radius: 5px;
+}
+.card__wrapper.skeleton .ingredient p {
+  width: 80%;
+  height: 2em;
+  background-color: whitesmoke;
+  border-radius: 5px;
+}
+.card__wrapper.skeleton .ingredient span {
+  width: 80%;
+  height: 2em;
+  background-color: whitesmoke;
+  border-radius: 5px;
 }
 
 .performance {
@@ -683,7 +723,7 @@ span.count {
   inset: 0;
   border-radius: 50px;
   background-color: lightgrey;
-  border: 1px solid white;
+  outline: 2px solid white;
   cursor: pointer;
 }
 .performance__slider::before {
@@ -703,7 +743,7 @@ span.count {
   font-size: 15px;
   color: white;
   top: -30px;
-  left: -20px;
+  left: -15px;
 }
 .performance input {
   display: none;
@@ -725,7 +765,7 @@ html {
 
 body {
   font-family: "Manrope";
-  background-color: lightgray;
+  background-color: rgb(230, 230, 230);
   margin-bottom: 3rem;
 }
 

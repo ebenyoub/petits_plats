@@ -6,7 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Les petits plats, des recettes pour tous les goûts.">
     <link rel="stylesheet" href="./dist/style.css">
-    <script src="https://kit.fontawesome.com/cf618d8113.js" crossorigin="anonymous"></script>
+    <link rel="icon" href="src/assets/images/icons/logo_circle.ico" type="image/x-icon">
+    <script defer src="https://kit.fontawesome.com/cf618d8113.js" crossorigin="anonymous"></script>
     <title>Les Petits Plats</title>
 </head>
 
@@ -14,8 +15,8 @@
     <header class="header">
         <h1 class="hidden">Les Petits Plats</h1>
         <div class="logo">
-            <img src="src/assets/images/icons/logo_name.png" width="auto" height="auto" alt="Les petits Plats">
-            <img src="src/assets/images/icons/logo_circle.svg" width="auto" height="auto" alt="">
+            <img src="src/assets/images/icons/logo_name.png" width="180" height="25" alt="Les petits Plats">
+            <img src="src/assets/images/icons/logo_circle.svg" width="25" height="25" alt="">
         </div>
         <div class="performance">
             <label class="performance__switch">
@@ -27,21 +28,506 @@
             <p class="intro">Cherchez parmi plus de 1500 recettes<br />du quotidien, simples et délicieuses</p>
             <form class="search-box">
                 <input type="search" name="search-main" id="search-main"
-                    placeholder="Rechercher une recette, un ingrédient..." autofocus>
+                    placeholder="Rechercher une recette, un ingrédient..." tabindex="0" autofocus>
                 <button type="submit" disabled>
-                    <img src="src/assets/images/icons/search.svg" alt="search button">
+                    <img src="src/assets/images/icons/search.svg" width="22" height="22" alt="search button">
                 </button>
             </form>
         </div>
     </header>
     <section class="sort-section">
-        <div class="inputs"></div>
+        <div class="inputs">
+            <div class="wrapper">
+                <div class="select-btn" tabindex="0">
+                    <span>Ingrédients</span>
+                    <i class="fa-solid fa-chevron-down"></i>
+                </div>
+                <div class="content content-ingredients">
+                    <div class="search">
+                        <input type="text" name="search-tag-ingredients" id="search-tag-ingredients" />
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                    </div>
+                    <ul class="select-tag"></ul>
+                    <ul class="options options-ingredients"></ul>
+                </div>
+            </div>
+            <div class="wrapper">
+                <div class="select-btn" tabindex="0">
+                    <span>Appareils</span>
+                    <i class="fa-solid fa-chevron-down"></i>
+                </div>
+                <div class="content content-appliances">
+                    <div class="search">
+                        <input type="text" name="search-tag-appliances" id="search-tag-appliances" />
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                    </div>
+                    <ul class="select-tag"></ul>
+                    <ul class="options options-appliances"></ul>
+                </div>
+
+            </div>
+            <div class="wrapper">
+                <div class="select-btn" tabindex="0">
+                    <span>Ustensiles</span>
+                    <i class="fa-solid fa-chevron-down"></i>
+                </div>
+                <div class="content content-ustensils">
+                    <div class="search">
+                        <input type="text" name="search-tag-ustensils" id="search-tag-ustensils" />
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                    </div>
+                    <ul class="select-tag"></ul>
+                    <ul class="options options-ustensils"></ul>
+                </div>
+            </div>
+        </div>
         <span class="tag-selected"></span>
         <span class="count"></span>
     </section>
-    <section class="card"></section>
+    <section class="card">
+        <article class="card__wrapper skeleton" tabindex="0">
+            <div class="img"></div>
+            <div class="card__content">
+                <h2></h2>
+                <div class="description">
+                    <h3></h3>
+                    <p></p>
+                    <span class="more"></span>
+                </div>
+                <div class="ingredients">
+                    <h3></h3>
+                    <div class="ingredients__list">
+                        <div class="ingredient">
+                            <p></p>
+                            <span></span>
+                        </div>
+                        <div class="ingredient">
+                            <p></p>
+                            <span></span>
+                        </div>
+                        <div class="ingredient">
+                            <p></p>
+                            <span></span>
+                        </div>
+                        <div class="ingredient">
+                            <p></p>
+                            <span></span>
+                        </div>
+                        <div class="ingredient">
+                            <p></p>
+                            <span></span>
+                        </div>
+                        <div class="ingredient">
+                            <p></p>
+                            <span></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </article>
+        <article class="card__wrapper skeleton" tabindex="0">
+            <div class="img"></div>
+            <div class="card__content">
+                <h2></h2>
+                <div class="description">
+                    <h3></h3>
+                    <p></p>
+                    <span class="more"></span>
+                </div>
+                <div class="ingredients">
+                    <h3></h3>
+                    <div class="ingredients__list">
+                        <div class="ingredient">
+                            <p></p>
+                            <span></span>
+                        </div>
+                        <div class="ingredient">
+                            <p></p>
+                            <span></span>
+                        </div>
+                        <div class="ingredient">
+                            <p></p>
+                            <span></span>
+                        </div>
+                        <div class="ingredient">
+                            <p></p>
+                            <span></span>
+                        </div>
+                        <div class="ingredient">
+                            <p></p>
+                            <span></span>
+                        </div>
+                        <div class="ingredient">
+                            <p></p>
+                            <span></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </article>
+        <article class="card__wrapper skeleton" tabindex="0">
+            <div class="img"></div>
+            <div class="card__content">
+                <h2></h2>
+                <div class="description">
+                    <h3></h3>
+                    <p></p>
+                    <span class="more"></span>
+                </div>
+                <div class="ingredients">
+                    <h3></h3>
+                    <div class="ingredients__list">
+                        <div class="ingredient">
+                            <p></p>
+                            <span></span>
+                        </div>
+                        <div class="ingredient">
+                            <p></p>
+                            <span></span>
+                        </div>
+                        <div class="ingredient">
+                            <p></p>
+                            <span></span>
+                        </div>
+                        <div class="ingredient">
+                            <p></p>
+                            <span></span>
+                        </div>
+                        <div class="ingredient">
+                            <p></p>
+                            <span></span>
+                        </div>
+                        <div class="ingredient">
+                            <p></p>
+                            <span></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </article>
+        <article class="card__wrapper skeleton" tabindex="0">
+            <div class="img"></div>
+            <div class="card__content">
+                <h2></h2>
+                <div class="description">
+                    <h3></h3>
+                    <p></p>
+                    <span class="more"></span>
+                </div>
+                <div class="ingredients">
+                    <h3></h3>
+                    <div class="ingredients__list">
+                        <div class="ingredient">
+                            <p></p>
+                            <span></span>
+                        </div>
+                        <div class="ingredient">
+                            <p></p>
+                            <span></span>
+                        </div>
+                        <div class="ingredient">
+                            <p></p>
+                            <span></span>
+                        </div>
+                        <div class="ingredient">
+                            <p></p>
+                            <span></span>
+                        </div>
+                        <div class="ingredient">
+                            <p></p>
+                            <span></span>
+                        </div>
+                        <div class="ingredient">
+                            <p></p>
+                            <span></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </article>
+        <article class="card__wrapper skeleton" tabindex="0">
+            <div class="img"></div>
+            <div class="card__content">
+                <h2></h2>
+                <div class="description">
+                    <h3></h3>
+                    <p></p>
+                    <span class="more"></span>
+                </div>
+                <div class="ingredients">
+                    <h3></h3>
+                    <div class="ingredients__list">
+                        <div class="ingredient">
+                            <p></p>
+                            <span></span>
+                        </div>
+                        <div class="ingredient">
+                            <p></p>
+                            <span></span>
+                        </div>
+                        <div class="ingredient">
+                            <p></p>
+                            <span></span>
+                        </div>
+                        <div class="ingredient">
+                            <p></p>
+                            <span></span>
+                        </div>
+                        <div class="ingredient">
+                            <p></p>
+                            <span></span>
+                        </div>
+                        <div class="ingredient">
+                            <p></p>
+                            <span></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </article>
+        <article class="card__wrapper skeleton" tabindex="0">
+            <div class="img"></div>
+            <div class="card__content">
+                <h2></h2>
+                <div class="description">
+                    <h3></h3>
+                    <p></p>
+                    <span class="more"></span>
+                </div>
+                <div class="ingredients">
+                    <h3></h3>
+                    <div class="ingredients__list">
+                        <div class="ingredient">
+                            <p></p>
+                            <span></span>
+                        </div>
+                        <div class="ingredient">
+                            <p></p>
+                            <span></span>
+                        </div>
+                        <div class="ingredient">
+                            <p></p>
+                            <span></span>
+                        </div>
+                        <div class="ingredient">
+                            <p></p>
+                            <span></span>
+                        </div>
+                        <div class="ingredient">
+                            <p></p>
+                            <span></span>
+                        </div>
+                        <div class="ingredient">
+                            <p></p>
+                            <span></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </article>
+        <article class="card__wrapper skeleton" tabindex="0">
+            <div class="img"></div>
+            <div class="card__content">
+                <h2></h2>
+                <div class="description">
+                    <h3></h3>
+                    <p></p>
+                    <span class="more"></span>
+                </div>
+                <div class="ingredients">
+                    <h3></h3>
+                    <div class="ingredients__list">
+                        <div class="ingredient">
+                            <p></p>
+                            <span></span>
+                        </div>
+                        <div class="ingredient">
+                            <p></p>
+                            <span></span>
+                        </div>
+                        <div class="ingredient">
+                            <p></p>
+                            <span></span>
+                        </div>
+                        <div class="ingredient">
+                            <p></p>
+                            <span></span>
+                        </div>
+                        <div class="ingredient">
+                            <p></p>
+                            <span></span>
+                        </div>
+                        <div class="ingredient">
+                            <p></p>
+                            <span></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </article>
+        <article class="card__wrapper skeleton" tabindex="0">
+            <div class="img"></div>
+            <div class="card__content">
+                <h2></h2>
+                <div class="description">
+                    <h3></h3>
+                    <p></p>
+                    <span class="more"></span>
+                </div>
+                <div class="ingredients">
+                    <h3></h3>
+                    <div class="ingredients__list">
+                        <div class="ingredient">
+                            <p></p>
+                            <span></span>
+                        </div>
+                        <div class="ingredient">
+                            <p></p>
+                            <span></span>
+                        </div>
+                        <div class="ingredient">
+                            <p></p>
+                            <span></span>
+                        </div>
+                        <div class="ingredient">
+                            <p></p>
+                            <span></span>
+                        </div>
+                        <div class="ingredient">
+                            <p></p>
+                            <span></span>
+                        </div>
+                        <div class="ingredient">
+                            <p></p>
+                            <span></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </article>
+        <article class="card__wrapper skeleton" tabindex="0">
+            <div class="img"></div>
+            <div class="card__content">
+                <h2></h2>
+                <div class="description">
+                    <h3></h3>
+                    <p></p>
+                    <span class="more"></span>
+                </div>
+                <div class="ingredients">
+                    <h3></h3>
+                    <div class="ingredients__list">
+                        <div class="ingredient">
+                            <p></p>
+                            <span></span>
+                        </div>
+                        <div class="ingredient">
+                            <p></p>
+                            <span></span>
+                        </div>
+                        <div class="ingredient">
+                            <p></p>
+                            <span></span>
+                        </div>
+                        <div class="ingredient">
+                            <p></p>
+                            <span></span>
+                        </div>
+                        <div class="ingredient">
+                            <p></p>
+                            <span></span>
+                        </div>
+                        <div class="ingredient">
+                            <p></p>
+                            <span></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </article>
+        <article class="card__wrapper skeleton" tabindex="0">
+            <div class="img"></div>
+            <div class="card__content">
+                <h2></h2>
+                <div class="description">
+                    <h3></h3>
+                    <p></p>
+                    <span class="more"></span>
+                </div>
+                <div class="ingredients">
+                    <h3></h3>
+                    <div class="ingredients__list">
+                        <div class="ingredient">
+                            <p></p>
+                            <span></span>
+                        </div>
+                        <div class="ingredient">
+                            <p></p>
+                            <span></span>
+                        </div>
+                        <div class="ingredient">
+                            <p></p>
+                            <span></span>
+                        </div>
+                        <div class="ingredient">
+                            <p></p>
+                            <span></span>
+                        </div>
+                        <div class="ingredient">
+                            <p></p>
+                            <span></span>
+                        </div>
+                        <div class="ingredient">
+                            <p></p>
+                            <span></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </article>
+        <article class="card__wrapper skeleton" tabindex="0">
+            <div class="img"></div>
+            <div class="card__content">
+                <h2></h2>
+                <div class="description">
+                    <h3></h3>
+                    <p></p>
+                    <span class="more"></span>
+                </div>
+                <div class="ingredients">
+                    <h3></h3>
+                    <div class="ingredients__list">
+                        <div class="ingredient">
+                            <p></p>
+                            <span></span>
+                        </div>
+                        <div class="ingredient">
+                            <p></p>
+                            <span></span>
+                        </div>
+                        <div class="ingredient">
+                            <p></p>
+                            <span></span>
+                        </div>
+                        <div class="ingredient">
+                            <p></p>
+                            <span></span>
+                        </div>
+                        <div class="ingredient">
+                            <p></p>
+                            <span></span>
+                        </div>
+                        <div class="ingredient">
+                            <p></p>
+                            <span></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </article>
+    </section>
     <div class="watcher"></div>
-    <script type="module" src="src/scripts/pages/index.js"></script>
+    <script type="module" src="dist/bundle.js"></script>
 </body>
 
 </html>

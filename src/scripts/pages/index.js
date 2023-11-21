@@ -20,7 +20,7 @@ const fetchData = async () => {
 
 const init = async () => {
     const searchBox = document.getElementById("search-main");
-
+    
     // initialisation des données des recettes
     card.data = await fetchData();
     card.indexes = card.ids;

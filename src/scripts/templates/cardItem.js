@@ -1,5 +1,6 @@
 import cardEvent from "../components/cardEvents.js";
 import card from "../data/handleData.js";
+import page from "../data/handlePage.js";
 
 const cardSection = document.querySelector(".card");
 const watcher = document.querySelector(".watcher");
@@ -15,7 +16,7 @@ const cardItem = (card) => {
     `).join("");
 
     return `
-        <article class="card__wrapper card${card.id}" data-id="${card.id}" tabindex="0">
+        <article class="card__wrapper card${card.id}" tabindex="0">
             <img src="${imageSrc}" width="380" height="253" alt="${card.name}" />
             <span class="timer">${card.time}min</span>
             <div class="card__content">
@@ -43,6 +44,7 @@ const insertCard = (card) => {
 
 export const loadCards = () => {
     const cardToLoad = 10;
+
     for (let i = 0; i < cardToLoad; i++) {
         const nextCard = card.getNextCard();
         nextCard && insertCard(nextCard);
@@ -56,12 +58,12 @@ const handleIntersect = entries => {
 };
 
 const lazyLoad = () => {
-    if (card.observer) {
-        card.observer.disconnect();
+    if (page.observer) {
+        page.observer.disconnect();
     }
-    card.observer = new IntersectionObserver(handleIntersect);
-    card.observer.observe(watcher);
-}; 
+    page.observer = new IntersectionObserver(handleIntersect);
+    page.observer.observe(watcher);
+};
 
 const setCardItems = () => {
     lazyLoad();
@@ -70,7 +72,7 @@ const setCardItems = () => {
     document.addEventListener("keydown", e => {
         if (e.key === "Tab") {
             const lastCard = document.querySelector(".card article:last-child");
-    
+
             if (document.activeElement === lastCard) {
                 loadCards();
             }

@@ -8,8 +8,6 @@ export class Card {
         this._indexesAdvanced = [];
         this._searchValue = "";
         this._currentIndex = 0;
-        this._observer;
-        this._performance = false;
     }
 
     set searchValue(value) {
@@ -55,24 +53,8 @@ export class Card {
         return allIds;
     }
 
-    set observer(intersection) {
-        this._observer = intersection;
-    }
-
-    get observer() {
-        return this._observer;
-    }
-
     set currentIndex(value = 0) {
         this._currentIndex = value;
-    }
-
-    get performance() {
-        return this._performance;
-    }
-
-    set performance(state) {
-        this._performance = state;
     }
 
     render(value = null) {

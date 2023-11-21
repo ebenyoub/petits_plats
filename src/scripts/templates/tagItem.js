@@ -19,7 +19,7 @@ function buildTag(nameList, tagItem, node) {
     buttonClose.setAttribute("class", "close-tag");
     buttonClose.setAttribute("alt", "remove tag");
     buttonClose.addEventListener("click", e => {
-        e.stopPropagation();
+        e.preventDefault();
         removeTag(li, tagItem, nameList);
     });
     li.setAttribute("class", "tag-element");

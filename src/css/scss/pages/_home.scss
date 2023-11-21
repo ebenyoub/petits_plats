@@ -10,6 +10,11 @@ body {
     font-family: 'Manrope';
     background-color: rgb(230, 230, 230);
     margin-bottom: 3rem;
+    min-width: 375px;
+
+    &.no-scroll {
+        overflow: hidden;
+    }
 }
 
 section {
@@ -19,4 +24,7 @@ section {
 
 }
 
+.hide {
+    display: none;
+}
 

@@ -1,9 +1,9 @@
 .performance {
     position: absolute;
-    top: 50px;
-    right: 50px;
-    width: 70px;
-    height: 40px;
+    top: clamp(30px, 5vw, 50px);
+    right: clamp(20px, 5vw, 50px);
+    width: 45px;
+    height: 25px;
 
     &__slider {
         position: absolute;
@@ -16,22 +16,13 @@
         &::before {
             position: absolute;
             content: "";
-            width: 30px;
-            height: 30px;
-            left: 5px;
-            bottom: 5px;
+            width: 20px;
+            height: 20px;
+            left: 2.5px;
+            bottom: 2.5px;
             background-color: #1b1b1b;
             border-radius: 50px;
             transition: .4s;
-        }
-
-        &::after {
-            position: absolute;
-            content: "Performances";
-            font-size: 15px;
-            color: white;
-            top: -30px;
-            left: -15px;
         }
     }
 
@@ -41,7 +32,7 @@
             background-color: #FFD15B;
 
             &::before {
-                transform: translateX(30px);
+                transform: translateX(20px);
             }
         }
     }

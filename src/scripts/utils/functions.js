@@ -95,10 +95,10 @@ export function mapIngredients(list) {
 }
 
 export function calculTime(filter) {
-    const startTime = Date.now();
+    const startTime = performance.now();
     const newIndexes = filter();
-    const endTime = Date.now();
-    const elapsedTime = endTime - startTime;
+    const endTime = performance.now();
+    const elapsedTime = (endTime - startTime).toFixed(1);
     return { elapsedTime, newIndexes };
 }
 

@@ -5,13 +5,11 @@ import inputClick from "../components/sortEvents.js";
 import setCardItems from "../templates/cardItem.js";
 import performance from "../components/performance.js";
 import filter from "../utils/filter_main.js";
+import handleResponsive from "../components/responsiveEvent.js";
 
 const fetchData = async () => {
     try {
         const response = await fetch("/src/scripts/data/data.json");
-        if (!response.ok) {
-            throw new Error(`HTTP error! Status: ${response.status}`);
-        }
         const data = await response.json();
         return data;
     } catch (error) {
@@ -26,9 +24,6 @@ const init = async () => {
     // initialisation des données des recettes
     card.data = await fetchData();
     card.indexes = card.ids;
-
-    // création des inputs de recherche avancé
-    // setSortInputs();
     
     // initialisation des tags
     tag.update();
@@ -37,10 +32,12 @@ const init = async () => {
     document.querySelector(".card").innerHTML = null;
     setCardItems();
     sortWithTag();
+    // évènements divers
     performance();
     inputClick();
-
+    
     searchBox.addEventListener("input", filter);
+    handleResponsive();
 };
 
 document.addEventListener("DOMContentLoaded", init);

@@ -13,22 +13,26 @@
 
 <body>
     <header class="header">
+        <div class="banner-performance">
+            <p>Performances (average)</p>
+            <p class="result-native">Native = -</p>
+            <p class="result-functionnal">Functionnal = -</p>
+        </div>
         <h1 class="hidden">Les Petits Plats</h1>
         <div class="logo">
             <img src="src/assets/images/icons/logo_name.png" width="180" height="25" alt="Les petits Plats">
             <img src="src/assets/images/icons/logo_circle.svg" width="25" height="25" alt="">
         </div>
-        <div class="performance">
+        <div class="performance" title="Performances sur console">
             <label class="performance__switch">
                 <input type="checkbox" id="switch-performance">
                 <span class="performance__slider"></span>
             </label>
         </div>
         <div class="header__content">
-            <p class="intro">Cherchez parmi plus de 1500 recettes<br />du quotidien, simples et délicieuses</p>
+            <p class="intro">Cherchez parmi plus de 1500 recettes<br>du quotidien, simples et délicieuses</p>
             <form class="search-box">
-                <input type="search" name="search-main" id="search-main"
-                    placeholder="Rechercher une recette, un ingrédient..." tabindex="0" autofocus>
+                <input type="search" name="search-main" id="search-main" tabindex="0" autofocus>
                 <button type="submit" disabled>
                     <img src="src/assets/images/icons/search.svg" width="22" height="22" alt="search button">
                 </button>
@@ -36,6 +40,8 @@
         </div>
     </header>
     <section class="sort-section">
+        <h2 class="hide">Filtre</h2>
+        <button class="filterBtn">Filtre</button>
         <div class="inputs">
             <div class="wrapper">
                 <div class="select-btn" tabindex="0">
@@ -44,7 +50,7 @@
                 </div>
                 <div class="content content-ingredients">
                     <div class="search">
-                        <input type="text" name="search-tag-ingredients" id="search-tag-ingredients" />
+                        <input type="text" name="search-tag-ingredients" id="search-tag-ingredients">
                         <i class="fa-solid fa-magnifying-glass"></i>
                     </div>
                     <ul class="options options-ingredients"></ul>
@@ -58,7 +64,7 @@
                 </div>
                 <div class="content content-appliances">
                     <div class="search">
-                        <input type="text" name="search-tag-appliances" id="search-tag-appliances" />
+                        <input type="text" name="search-tag-appliances" id="search-tag-appliances">
                         <i class="fa-solid fa-magnifying-glass"></i>
                     </div>
                     <ul class="options options-appliances"></ul>
@@ -72,29 +78,33 @@
                 </div>
                 <div class="content content-ustensils">
                     <div class="search">
-                        <input type="text" name="search-tag-ustensils" id="search-tag-ustensils" />
+                        <input type="text" name="search-tag-ustensils" id="search-tag-ustensils">
                         <i class="fa-solid fa-magnifying-glass"></i>
                     </div>
                     <ul class="options options-ustensils"></ul>
                 </div>
                 <ul class="select-tag select-tag-ustensils"></ul>
             </div>
+            <div class="btn-wrapper">
+                <button class="filter filterBtn">Appliquer</button>
+                <button class="reset filterBtn">Reset</button>
+            </div>
         </div>
-        <span class="tag-selected"></span>
         <span class="count"></span>
     </section>
     <section class="card">
-        <article class="card__wrapper skeleton" tabindex="0">
+        <h2 class="hide">Recettes</h2>
+        <div class="card__wrapper skeleton" tabindex="0">
             <div class="img"></div>
             <div class="card__content">
-                <h2></h2>
+                <p></p>
                 <div class="description">
-                    <h3></h3>
+                    <p></p>
                     <p></p>
                     <span class="more"></span>
                 </div>
                 <div class="ingredients">
-                    <h3></h3>
+                    <p></p>
                     <div class="ingredients__list">
                         <div class="ingredient">
                             <p></p>
@@ -123,18 +133,18 @@
                     </div>
                 </div>
             </div>
-        </article>
-        <article class="card__wrapper skeleton" tabindex="0">
+        </div>
+        <div class="card__wrapper skeleton" tabindex="0">
             <div class="img"></div>
             <div class="card__content">
-                <h2></h2>
+                <p></p>
                 <div class="description">
-                    <h3></h3>
+                    <p></p>
                     <p></p>
                     <span class="more"></span>
                 </div>
                 <div class="ingredients">
-                    <h3></h3>
+                    <p></p>
                     <div class="ingredients__list">
                         <div class="ingredient">
                             <p></p>
@@ -163,18 +173,18 @@
                     </div>
                 </div>
             </div>
-        </article>
-        <article class="card__wrapper skeleton" tabindex="0">
+        </div>
+        <div class="card__wrapper skeleton" tabindex="0">
             <div class="img"></div>
             <div class="card__content">
-                <h2></h2>
+                <p></p>
                 <div class="description">
-                    <h3></h3>
+                    <p></p>
                     <p></p>
                     <span class="more"></span>
                 </div>
                 <div class="ingredients">
-                    <h3></h3>
+                    <p></p>
                     <div class="ingredients__list">
                         <div class="ingredient">
                             <p></p>
@@ -203,18 +213,18 @@
                     </div>
                 </div>
             </div>
-        </article>
-        <article class="card__wrapper skeleton" tabindex="0">
+        </div>
+        <div class="card__wrapper skeleton" tabindex="0">
             <div class="img"></div>
             <div class="card__content">
-                <h2></h2>
+                <p></p>
                 <div class="description">
-                    <h3></h3>
+                    <p></p>
                     <p></p>
                     <span class="more"></span>
                 </div>
                 <div class="ingredients">
-                    <h3></h3>
+                    <p></p>
                     <div class="ingredients__list">
                         <div class="ingredient">
                             <p></p>
@@ -243,18 +253,18 @@
                     </div>
                 </div>
             </div>
-        </article>
-        <article class="card__wrapper skeleton" tabindex="0">
+        </div>
+        <div class="card__wrapper skeleton" tabindex="0">
             <div class="img"></div>
             <div class="card__content">
-                <h2></h2>
+                <p></p>
                 <div class="description">
-                    <h3></h3>
+                    <p></p>
                     <p></p>
                     <span class="more"></span>
                 </div>
                 <div class="ingredients">
-                    <h3></h3>
+                    <p></p>
                     <div class="ingredients__list">
                         <div class="ingredient">
                             <p></p>
@@ -283,18 +293,18 @@
                     </div>
                 </div>
             </div>
-        </article>
-        <article class="card__wrapper skeleton" tabindex="0">
+        </div>
+        <div class="card__wrapper skeleton" tabindex="0">
             <div class="img"></div>
             <div class="card__content">
-                <h2></h2>
+                <p></p>
                 <div class="description">
-                    <h3></h3>
+                    <p></p>
                     <p></p>
                     <span class="more"></span>
                 </div>
                 <div class="ingredients">
-                    <h3></h3>
+                    <p></p>
                     <div class="ingredients__list">
                         <div class="ingredient">
                             <p></p>
@@ -323,18 +333,18 @@
                     </div>
                 </div>
             </div>
-        </article>
-        <article class="card__wrapper skeleton" tabindex="0">
+        </div>
+        <div class="card__wrapper skeleton" tabindex="0">
             <div class="img"></div>
             <div class="card__content">
-                <h2></h2>
+                <p></p>
                 <div class="description">
-                    <h3></h3>
+                    <p></p>
                     <p></p>
                     <span class="more"></span>
                 </div>
                 <div class="ingredients">
-                    <h3></h3>
+                    <p></p>
                     <div class="ingredients__list">
                         <div class="ingredient">
                             <p></p>
@@ -363,18 +373,18 @@
                     </div>
                 </div>
             </div>
-        </article>
-        <article class="card__wrapper skeleton" tabindex="0">
+        </div>
+        <div class="card__wrapper skeleton" tabindex="0">
             <div class="img"></div>
             <div class="card__content">
-                <h2></h2>
+                <p></p>
                 <div class="description">
-                    <h3></h3>
+                    <p></p>
                     <p></p>
                     <span class="more"></span>
                 </div>
                 <div class="ingredients">
-                    <h3></h3>
+                    <p></p>
                     <div class="ingredients__list">
                         <div class="ingredient">
                             <p></p>
@@ -403,18 +413,18 @@
                     </div>
                 </div>
             </div>
-        </article>
-        <article class="card__wrapper skeleton" tabindex="0">
+        </div>
+        <div class="card__wrapper skeleton" tabindex="0">
             <div class="img"></div>
             <div class="card__content">
-                <h2></h2>
+                <p></p>
                 <div class="description">
-                    <h3></h3>
+                    <p></p>
                     <p></p>
                     <span class="more"></span>
                 </div>
                 <div class="ingredients">
-                    <h3></h3>
+                    <p></p>
                     <div class="ingredients__list">
                         <div class="ingredient">
                             <p></p>
@@ -443,18 +453,18 @@
                     </div>
                 </div>
             </div>
-        </article>
-        <article class="card__wrapper skeleton" tabindex="0">
+        </div>
+        <div class="card__wrapper skeleton" tabindex="0">
             <div class="img"></div>
             <div class="card__content">
-                <h2></h2>
+                <p></p>
                 <div class="description">
-                    <h3></h3>
+                    <p></p>
                     <p></p>
                     <span class="more"></span>
                 </div>
                 <div class="ingredients">
-                    <h3></h3>
+                    <p></p>
                     <div class="ingredients__list">
                         <div class="ingredient">
                             <p></p>
@@ -483,50 +493,11 @@
                     </div>
                 </div>
             </div>
-        </article>
-        <article class="card__wrapper skeleton" tabindex="0">
-            <div class="img"></div>
-            <div class="card__content">
-                <h2></h2>
-                <div class="description">
-                    <h3></h3>
-                    <p></p>
-                    <span class="more"></span>
-                </div>
-                <div class="ingredients">
-                    <h3></h3>
-                    <div class="ingredients__list">
-                        <div class="ingredient">
-                            <p></p>
-                            <span></span>
-                        </div>
-                        <div class="ingredient">
-                            <p></p>
-                            <span></span>
-                        </div>
-                        <div class="ingredient">
-                            <p></p>
-                            <span></span>
-                        </div>
-                        <div class="ingredient">
-                            <p></p>
-                            <span></span>
-                        </div>
-                        <div class="ingredient">
-                            <p></p>
-                            <span></span>
-                        </div>
-                        <div class="ingredient">
-                            <p></p>
-                            <span></span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </article>
+        </div>
     </section>
     <div class="watcher"></div>
-    <script type="module" src="src/scripts/pages/index.js"></script>
+    <div class="overlay"></div>
+    <script type="module" src="dist/bundle.js"></script>
 </body>
 
 </html>

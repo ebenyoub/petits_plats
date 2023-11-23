@@ -3,7 +3,8 @@ import { createList } from "../templates/tagItem.js";
 import { isValueInItem } from "../utils/functions.js";
 
 const sortWithTag = () => {
-    const options = Array.from(document.querySelector(".wrapper"));
+    
+    const options = Array.from(document.querySelectorAll(".wrapper"));
     options.forEach(option => {
         const input = option.querySelector("input[id^=\"search-\"");
         const ul = option.querySelector(".options");
